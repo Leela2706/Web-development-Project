@@ -2,25 +2,143 @@
 <html lang="en">
 
 <!-- 
-TODO: Change the background color for each device
-[lightsalmon] Mobile Devices: 319px — 480px
-[powderblue] iPads and Tablets: 481px — 1200px
-[limegreen] Laptops: 1201px — 1600px
-[seagreen] Desktops: 1601px and more
+Responsive Background Demo
+---------------------------------
+Mobile      : 319px — 480px   → lightsalmon
+Tablet      : 481px — 1200px  → powderblue
+Laptop      : 1201px — 1600px → limegreen
+Desktop     : 1601px+         → seagreen
 -->
 
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
-  <title>Media Query</title>
+  <title>Responsive Media Query Demo</title>
+
   <style>
+    /* -----------------------------
+       Global Reset & Base Styles
+    ------------------------------*/
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
+      min-height: 100vh;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       background-color: aquamarine;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: background-color 0.6s ease;
+    }
+
+    /* -----------------------------
+       Layout Container
+    ------------------------------*/
+    .wrapper {
+      background: rgba(255, 255, 255, 0.85);
+      padding: 40px 50px;
+      border-radius: 14px;
+      max-width: 700px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 12px;
+      color: #222;
+      letter-spacing: 0.5px;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #444;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .device-info {
+      font-size: 0.95rem;
+      padding: 14px 18px;
+      border-radius: 10px;
+      background: #f4f4f4;
+      color: #333;
+    }
+
+    .device-info span {
+      display: block;
+      margin-top: 6px;
+      font-weight: 600;
+    }
+
+    /* -----------------------------
+       Media Queries
+    ------------------------------*/
+
+    /* Mobile Devices */
+    @media (min-width: 319px) and (max-width: 480px) {
+      body {
+        background-color: lightsalmon;
+      }
+
+      .device-info::after {
+        content: "Mobile Device (319px – 480px)";
+      }
+    }
+
+    /* Tablets & iPads */
+    @media (min-width: 481px) and (max-width: 1200px) {
+      body {
+        background-color: powderblue;
+      }
+
+      .device-info::after {
+        content: "Tablet / iPad (481px – 1200px)";
+      }
+    }
+
+    /* Laptops */
+    @media (min-width: 1201px) and (max-width: 1600px) {
+      body {
+        background-color: limegreen;
+      }
+
+      .device-info::after {
+        content: "Laptop Screen (1201px – 1600px)";
+      }
+    }
+
+    /* Desktops */
+    @media (min-width: 1601px) {
+      body {
+        background-color: seagreen;
+      }
+
+      .device-info::after {
+        content: "Desktop / Large Screen (1601px and above)";
+      }
     }
   </style>
 </head>
 
 <body>
+  <div class="wrapper">
+    <h1>Responsive Media Query</h1>
+    <p>
+      Resize the browser window to see how the background color
+      changes based on the device screen width using CSS media queries.
+    </p>
+
+    <div class="device-info">
+      Current Viewport:
+      <span></span>
+    </div>
+  </div>
 </body>
 
 </html>
