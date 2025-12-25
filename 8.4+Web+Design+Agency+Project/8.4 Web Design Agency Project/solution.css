@@ -1,32 +1,72 @@
+/* --------------------
+   Global Reset
+--------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* --------------------
+   Base Styles
+--------------------- */
 body {
   font-family: "Poppins", sans-serif;
-  margin: 50px 50px 0 50px;
-  background-color: #faf9f6;
-  display: flex;
-  flex-direction: column;
-  min-height: 95vh;
+  background-color: #fafafa;
+  color: #333;
+  line-height: 1.6;
 }
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* --------------------
+   Main Layout
+--------------------- */
 .main {
-  flex: 1;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
 }
 
+/* --------------------
+   Logo
+--------------------- */
+.logo {
+  width: 140px;
+  margin-bottom: 40px;
+}
+
+/* --------------------
+   Heading
+--------------------- */
 h1 {
-  font-size: 5rem;
+  font-size: 3.2rem;
+  margin-bottom: 60px;
+  font-weight: 700;
 }
 
-footer {
-  text-align: right;
-  color: midnightblue;
+.creative {
+  color: #ff6f61;
 }
 
-.tile-image {
-  height: 200px;
-  float: left;
-  margin-right: 50px;
-}
-
+/* --------------------
+   Cards Layout
+--------------------- */
 .card {
-  width: 45%;
+  width: 48%;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
 .left {
@@ -37,31 +77,63 @@ footer {
   float: right;
 }
 
-.creative {
-  color: midnightblue;
+/* --------------------
+   Card Content
+--------------------- */
+.tile-image {
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 16px;
 }
 
-@media (max-width: 680px) {
-  .logo {
-    width: 100px;
-  }
+.card-title {
+  font-size: 1.6rem;
+  margin-bottom: 12px;
+  color: #222;
+}
 
+.card-text,
+.card p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* --------------------
+   Footer
+--------------------- */
+footer {
+  clear: both;
+  margin-top: 80px;
+  padding: 30px 0;
+  text-align: center;
+  background-color: #222;
+  color: #fff;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+/* --------------------
+   Responsive Design
+--------------------- */
+@media (max-width: 900px) {
   h1 {
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     text-align: center;
   }
 
   .card {
     width: 100%;
-    display: block;
     margin-bottom: 30px;
-    text-align: justify;
   }
 
-  .card img {
-    margin-bottom: 10px;
-    width: 100%;
-    display: inline;
-    object-fit: cover;
+  .left,
+  .right {
+    float: none;
+  }
+
+  .logo {
+    display: block;
+    margin: 0 auto 30px;
   }
 }
