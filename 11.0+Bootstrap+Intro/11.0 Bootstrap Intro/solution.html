@@ -2,34 +2,202 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Bootstrap demo</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Premium Bootstrap Card</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+
   <style>
-    .flex-container {
+    body {
+      background: linear-gradient(120deg, #e0f7fa, #fce4ec);
+      min-height: 100vh;
+      font-family: "Segoe UI", system-ui, sans-serif;
+    }
+
+    .page-wrapper {
+      min-height: 100vh;
       display: flex;
-      height: 100vh;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .custom-card {
+      width: 22rem;
+      border-radius: 1.25rem;
+      overflow: hidden;
+      border: none;
+      background-color: #fff;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      transition: all 0.35s ease;
+    }
+
+    .custom-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
+    }
+
+    .image-wrapper {
+      position: relative;
+    }
+
+    .image-wrapper::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+    }
+
+    .card-img-top {
+      height: 240px;
+      object-fit: cover;
+    }
+
+    .badge-custom {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      z-index: 2;
+      background: #ff4081;
+      padding: 0.45rem 0.75rem;
+      border-radius: 50px;
+      font-size: 0.75rem;
+    }
+
+    .card-body {
+      padding: 1.6rem;
+    }
+
+    .card-title {
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .rating {
+      color: #ffc107;
+      font-size: 0.9rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .card-text {
+      color: #555;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .features-list li {
+      border: none;
+      padding-left: 0;
+      font-size: 0.9rem;
+    }
+
+    .author {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .author img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .author small {
+      color: #777;
+    }
+
+    .card-footer {
+      background-color: #fafafa;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #eee;
+    }
+
+    .price {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #2e7d32;
+    }
+
+    .action-buttons a {
+      border-radius: 50px;
+      padding: 0.35rem 1rem;
     }
   </style>
 </head>
 
 <body>
-  <div class="flex-container">
-    <div class="card" style="width: 18rem;">
-      <img src="./flower.jpg" class="card-img-top" alt="sunflower">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.
-        </p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+  <div class="page-wrapper">
+    <div class="card custom-card">
+
+      <!-- Image Section -->
+      <div class="image-wrapper position-relative">
+        <span class="badge badge-custom text-white">FEATURED</span>
+        <img src="./flower.jpg" class="card-img-top" alt="Sunflower Image" />
       </div>
+
+      <!-- Card Body -->
+      <div class="card-body">
+        <h5 class="card-title">Beautiful Sunflower</h5>
+
+        <div class="rating">
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-half"></i>
+          <span class="text-muted ms-1">(4.5)</span>
+        </div>
+
+        <p class="card-text">
+          Sunflowers represent positivity and warmth. This premium card layout
+          showcases modern UI techniques using Bootstrap and custom CSS.
+        </p>
+
+        <ul class="list-group list-group-flush features-list mb-3">
+          <li class="list-group-item">🌼 100% Natural</li>
+          <li class="list-group-item">☀️ Bright & Vibrant</li>
+          <li class="list-group-item">📷 Studio Quality Image</li>
+        </ul>
+
+        <div class="author">
+          <img src="https://i.pravatar.cc/100?img=12" alt="Author">
+          <div>
+            <strong>Leela Designs</strong><br />
+            <small>Nature Collection</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="card-footer">
+        <span class="price">₹499</span>
+        <div class="action-buttons">
+          <a href="#" class="btn btn-outline-secondary btn-sm me-2">
+            <i class="bi bi-heart"></i>
+          </a>
+          <a href="#" class="btn btn-primary btn-sm">
+            View Details
+          </a>
+        </div>
+      </div>
+
     </div>
   </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
