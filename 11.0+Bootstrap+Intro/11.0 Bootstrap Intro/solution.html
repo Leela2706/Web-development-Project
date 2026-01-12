@@ -7,68 +7,72 @@
   <title>Premium Product Card</title>
 
   <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
 
   <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
 
   <style>
     :root {
-      --primary-gradient: linear-gradient(120deg, #e0f7fa, #fce4ec);
-      --accent-color: #ff4081;
-      --success-color: #2e7d32;
+      --bg-gradient: linear-gradient(135deg, #e3f2fd, #fce4ec);
+      --accent: #ff4081;
+      --success: #2e7d32;
+      --text-muted: #6c757d;
     }
 
     body {
-      background: var(--primary-gradient);
       min-height: 100vh;
-      font-family: "Segoe UI", system-ui, sans-serif;
+      background: var(--bg-gradient);
+      font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+      display: flex;
+      flex-direction: column;
     }
 
-    /* ---------- NAVBAR ---------- */
+    /* Navbar */
     .navbar-brand span {
-      color: var(--accent-color);
+      color: var(--accent);
       font-weight: 700;
     }
 
-    /* ---------- PAGE LAYOUT ---------- */
+    /* Layout */
     .page-wrapper {
-      min-height: calc(100vh - 72px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      flex: 1;
+      display: grid;
+      place-items: center;
       padding: 3rem 1rem;
     }
 
-    /* ---------- CARD ---------- */
+    /* Card */
     .custom-card {
-      width: 23rem;
-      border-radius: 1.4rem;
-      overflow: hidden;
+      width: 100%;
+      max-width: 360px;
+      border-radius: 1.5rem;
       border: none;
-      background-color: #fff;
-      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.18);
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-      animation: fadeUp 0.8s ease;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      animation: fadeUp 0.7s ease both;
     }
 
     .custom-card:hover {
-      transform: translateY(-12px);
-      box-shadow: 0 40px 70px rgba(0, 0, 0, 0.3);
+      transform: translateY(-10px);
+      box-shadow: 0 35px 70px rgba(0, 0, 0, 0.25);
     }
 
     @keyframes fadeUp {
       from {
         opacity: 0;
-        transform: translateY(40px);
+        transform: translateY(30px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
       }
     }
 
-    /* ---------- IMAGE ---------- */
+    /* Image */
     .image-wrapper {
       position: relative;
     }
@@ -77,72 +81,76 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.65), transparent);
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent 60%);
     }
 
     .card-img-top {
-      height: 260px;
+      height: 250px;
       object-fit: cover;
     }
 
     .badge-custom {
       position: absolute;
-      top: 18px;
-      left: 18px;
+      top: 16px;
+      left: 16px;
       z-index: 2;
-      background: var(--accent-color);
-      padding: 0.45rem 0.85rem;
+      background: var(--accent);
+      padding: 0.45rem 0.9rem;
       border-radius: 50px;
-      font-size: 0.75rem;
-      letter-spacing: 0.5px;
+      font-size: 0.7rem;
+      letter-spacing: 0.6px;
     }
 
     .image-text {
       position: absolute;
       bottom: 16px;
-      left: 18px;
+      left: 16px;
       z-index: 2;
       color: #fff;
+      font-size: 0.8rem;
+      opacity: 0.9;
     }
 
-    /* ---------- BODY ---------- */
+    /* Body */
     .card-body {
-      padding: 1.7rem;
+      padding: 1.75rem;
     }
 
     .card-title {
       font-weight: 700;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.35rem;
     }
 
     .rating {
       color: #ffc107;
       font-size: 0.9rem;
-      margin-bottom: 0.8rem;
+      margin-bottom: 0.75rem;
     }
 
     .tags span {
-      font-size: 0.75rem;
-      padding: 0.25rem 0.6rem;
+      display: inline-block;
+      font-size: 0.72rem;
+      padding: 0.25rem 0.65rem;
       border-radius: 50px;
-      background-color: #f1f1f1;
+      background: #f3f3f3;
       margin-right: 0.4rem;
+      margin-bottom: 0.25rem;
     }
 
     .card-text {
-      color: #555;
       font-size: 0.95rem;
       line-height: 1.6;
+      color: #555;
       margin: 1rem 0;
     }
 
     .features-list li {
-      border: none;
-      padding-left: 0;
       font-size: 0.9rem;
+      padding-left: 0;
+      border: none;
     }
 
-    /* ---------- AUTHOR ---------- */
+    /* Author */
     .author {
       display: flex;
       align-items: center;
@@ -151,20 +159,20 @@
     }
 
     .author img {
-      width: 42px;
-      height: 42px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
       object-fit: cover;
     }
 
     .author small {
-      color: #777;
+      color: var(--text-muted);
     }
 
-    /* ---------- FOOTER ---------- */
+    /* Footer */
     .card-footer {
-      background-color: #fafafa;
-      padding: 1.2rem 1.6rem;
+      background: #fafafa;
+      padding: 1.1rem 1.6rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -172,17 +180,16 @@
     }
 
     .price {
-      font-size: 1.25rem;
+      font-size: 1.3rem;
       font-weight: 700;
-      color: var(--success-color);
+      color: var(--success);
     }
 
-    .action-buttons a {
-      border-radius: 50px;
+    .action-buttons .btn {
+      border-radius: 999px;
       padding: 0.35rem 1rem;
     }
 
-    /* ---------- PAGE FOOTER ---------- */
     footer {
       text-align: center;
       padding: 1rem;
@@ -194,27 +201,19 @@
 
 <body>
 
-  <!-- NAVBAR -->
   <nav class="navbar navbar-light bg-white shadow-sm px-4">
-    <a class="navbar-brand" href="#">
-      <span>Leela</span>UI
-    </a>
+    <a class="navbar-brand" href="#"><span>Leela</span>UI</a>
   </nav>
 
-  <!-- MAIN CONTENT -->
   <div class="page-wrapper">
     <div class="card custom-card">
 
-      <!-- IMAGE -->
       <div class="image-wrapper">
         <span class="badge badge-custom text-white">FEATURED</span>
         <img src="./flower.jpg" class="card-img-top" alt="Sunflower" />
-        <div class="image-text">
-          <small>Limited Edition</small>
-        </div>
+        <div class="image-text">Limited Edition</div>
       </div>
 
-      <!-- BODY -->
       <div class="card-body">
         <h5 class="card-title">Beautiful Sunflower</h5>
 
@@ -224,7 +223,7 @@
           <i class="bi bi-star-fill"></i>
           <i class="bi bi-star-fill"></i>
           <i class="bi bi-star-half"></i>
-          <span class="text-muted ms-1">(4.5)</span>
+          <span class="text-muted ms-1">4.5</span>
         </div>
 
         <div class="tags mb-2">
@@ -234,8 +233,7 @@
         </div>
 
         <p class="card-text">
-          A premium sunflower collection crafted for nature lovers.
-          Designed with attention to detail and modern UI principles.
+          A premium sunflower collection crafted for nature lovers, combining modern UI aesthetics with natural beauty.
         </p>
 
         <ul class="list-group list-group-flush features-list mb-3">
@@ -245,7 +243,7 @@
         </ul>
 
         <div class="author">
-          <img src="https://i.pravatar.cc/100?img=12" alt="Author">
+          <img src="https://i.pravatar.cc/100?img=12" alt="Author" />
           <div>
             <strong>Leela Designs</strong><br />
             <small>Nature Collection</small>
@@ -253,34 +251,24 @@
         </div>
       </div>
 
-      <!-- FOOTER -->
       <div class="card-footer">
         <span class="price">₹4,999</span>
         <div class="action-buttons">
-          <a href="#" class="btn btn-outline-secondary btn-sm me-2" data-bs-toggle="tooltip" title="Add to wishlist">
+          <button class="btn btn-outline-secondary btn-sm me-2" data-bs-toggle="tooltip" title="Add to wishlist">
             <i class="bi bi-heart"></i>
-          </a>
-          <a href="#" class="btn btn-primary btn-sm">
-            Buy Now
-          </a>
+          </button>
+          <button class="btn btn-primary btn-sm">Buy Now</button>
         </div>
       </div>
 
     </div>
   </div>
 
-  <!-- PAGE FOOTER -->
-  <footer>
-    © 2026 LeelaUI · Crafted with Bootstrap
-  </footer>
+  <footer>© 2026 LeelaUI · Crafted with Bootstrap</footer>
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    // Enable tooltips
-    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-    tooltipTriggerList.forEach(el => new bootstrap.Tooltip(el));
+    document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el => new bootstrap.Tooltip(el));
   </script>
 </body>
 
