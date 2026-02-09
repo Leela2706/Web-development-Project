@@ -1,309 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Move It | Seamless Moving Services</title>
-
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  
   <style>
     :root {
-      --primary: #2563eb;
-      --secondary: #64748b;
-      --dark: #0f172a;
-      --bg-soft: #f8fafc;
+      --primary-color: #2563eb;
+      --secondary-color: #64748b;
+      --dark-bg: #0f172a;
     }
 
     body {
-      font-family: "Inter", sans-serif;
+      font-family: 'Inter', sans-serif;
       color: #334155;
-      background: #ffffff;
-      line-height: 1.7;
+      line-height: 1.6;
     }
 
-    /* Navbar */
+    /* Navbar Polish */
     .navbar {
-      backdrop-filter: blur(12px);
-      background: rgba(255, 255, 255, 0.9) !important;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.04);
+      padding: 1rem 0;
+      background: rgba(255, 255, 255, 0.95) !important;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 1px 0 rgba(0,0,0,0.05);
     }
 
     .navbar-brand {
-      font-weight: 800;
+      font-weight: 700;
       letter-spacing: -0.5px;
     }
 
-    .nav-link {
-      font-weight: 500;
-    }
-
-    .nav-link:hover {
-      color: var(--primary) !important;
-    }
-
-    /* Buttons */
-    .btn-primary {
-      background: linear-gradient(135deg, #2563eb, #3b82f6);
-      border: none;
-      border-radius: 10px;
-      padding: 0.7rem 1.8rem;
-      transition: 0.3s ease;
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 20px rgba(37,99,235,0.3);
-    }
-
-    .btn-outline-dark {
-      border-radius: 10px;
-      padding: 0.7rem 1.8rem;
-    }
-
-    /* Hero */
+    /* Hero Section Enhancement */
     .hero-container {
-      background: radial-gradient(circle at top right, #f1f5f9, #ffffff);
+      background: radial-gradient(circle at top right, #f8fafc, #ffffff);
       padding-bottom: 0;
     }
 
     .display-4 {
-      font-weight: 800;
       letter-spacing: -2px;
-      color: var(--dark);
+      color: var(--dark-bg);
     }
 
     .hero-img {
-      border-radius: 24px;
-      transition: 0.5s ease;
+      transition: transform 0.5s ease;
+      border-radius: 24px !important;
     }
 
-    .hero-img:hover {
-      transform: scale(1.03);
-    }
-
-    /* Features */
-    .feature {
-      padding: 2rem;
-      border-radius: 20px;
-      transition: 0.3s ease;
-      background: white;
-    }
-
-    .feature:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-    }
-
+    /* Feature Cards */
     .feature-icon {
       width: 3.5rem;
       height: 3.5rem;
-      border-radius: 14px;
-      background: linear-gradient(135deg, #2563eb, #3b82f6);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 12px 25px rgba(37,99,235,0.35);
+      border-radius: 12px;
       margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, var(--primary-color), #3b82f6) !important;
+      box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.2);
     }
 
     .feature h3 {
       font-weight: 700;
+      font-size: 1.5rem;
     }
 
-    /* Carousel */
+    /* Carousel Sizing */
     .carousel {
-      border-radius: 28px;
+      border-radius: 24px;
       overflow: hidden;
+      margin-top: 4rem;
     }
 
-    .carousel img {
-      height: 480px;
+    .carousel-item img {
+      height: 500px;
       object-fit: cover;
     }
 
-    /* Footer */
-    footer {
-      background: #f8fafc;
-    }
-
+    /* Footer Styles */
     footer h5 {
-      font-size: 0.85rem;
-      letter-spacing: 1px;
-      text-transform: uppercase;
       font-weight: 700;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 1.5rem;
     }
 
-    footer a:hover {
-      color: var(--primary) !important;
+    .nav-link:hover {
+      color: var(--primary-color) !important;
     }
 
-    @media (max-width: 768px) {
-      .carousel img {
-        height: 300px;
-      }
-
-      .display-4 {
-        font-size: 2.2rem;
-      }
+    .btn-primary {
+      background-color: var(--primary-color);
+      border: none;
+      padding: 0.8rem 2rem;
+      font-weight: 600;
+      border-radius: 8px;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-lg sticky-top">
+  <nav class="navbar navbar-expand-lg sticky-top bg-white">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center" href="#">
-        <img src="./box-seam.svg" height="30" class="me-2" /> MOVE IT
+        <img src="./box-seam.svg" alt="logo" height="30" class="me-2">MOVE IT
       </a>
-
       <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
-
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto me-4">
-          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link active fw-semibold" href="#">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="#">About</a></li>
           <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
         </ul>
-
-        <form class="d-flex">
-          <input class="form-control me-2 border-0 bg-light" placeholder="Postcode" />
-          <button class="btn btn-primary">Check</button>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2 border-0 bg-light" type="search" placeholder="Postcode">
+          <button class="btn btn-primary shadow-sm" type="submit">Check</button>
         </form>
       </div>
     </div>
   </nav>
 
-  <!-- HERO -->
-  <section class="hero-container text-center border-bottom px-4 pt-5">
-    <h1 class="display-4 mt-5 mb-3">Move With <span style="color: var(--primary);">Joy</span></h1>
-
+  <div class="hero-container px-4 pt-5 text-center border-bottom">
+    <h1 class="display-4 fw-bold mt-5 mb-3">Move With <span style="color: var(--primary-color);">Joy</span></h1>
     <div class="col-lg-6 mx-auto">
-      <p class="lead text-secondary mb-5">
-        Seamless, tech-enabled moving services across the US with care, speed and transparency.
-      </p>
-
+      <p class="lead mb-5 text-secondary">Moving doesn't have to be a headache. We provide seamless, tech-enabled moving services across the US, focused on efficiency and care.</p>
       <div class="d-grid gap-3 d-sm-flex justify-content-sm-center mb-5">
-        <button class="btn btn-primary btn-lg">Get a Quote</button>
-        <button class="btn btn-outline-dark btn-lg">Contact Us</button>
+        <button type="button" class="btn btn-primary btn-lg px-5">Get a Quote</button>
+        <button type="button" class="btn btn-outline-dark btn-lg px-5">Contact Us</button>
       </div>
     </div>
-
-    <div class="container px-5">
-      <img src="./moving-van.jpg" class="img-fluid hero-img shadow-lg mb-4" width="900" />
-    </div>
-  </section>
-
-  <!-- FEATURES -->
-  <section class="container py-5">
-    <h2 class="fw-bold mb-4">Why Move With Us?</h2>
-
-    <div class="row g-4">
-      <div class="col-md-4">
-        <div class="feature h-100">
-          <div class="feature-icon">
-            <img src="./briefcase.svg" height="26" style="filter: invert(1);" />
-          </div>
-          <h3>Professional</h3>
-          <p class="text-secondary">
-            Trained experts who treat your belongings like their own.
-          </p>
-          <a href="#" class="fw-bold text-decoration-none">Get started →</a>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="feature h-100">
-          <div class="feature-icon">
-            <img src="./bus-front.svg" height="26" style="filter: invert(1);" />
-          </div>
-          <h3>Countrywide</h3>
-          <p class="text-secondary">
-            From city to city, transparent pricing with no surprises.
-          </p>
-          <a href="#" class="fw-bold text-decoration-none">View rates →</a>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="feature h-100">
-          <div class="feature-icon">
-            <img src="./chat-square-heart.svg" height="26" style="filter: invert(1);" />
-          </div>
-          <h3>Personal Touch</h3>
-          <p class="text-secondary">
-            Dedicated coordinator for every move.
-          </p>
-          <a href="#" class="fw-bold text-decoration-none">Our promise →</a>
-        </div>
+    <div class="overflow-hidden" style="max-height: 40vh;">
+      <div class="container px-5">
+        <img src="./moving-van.jpg" class="img-fluid hero-img shadow-lg mb-4" alt="Moving Van" width="900">
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- CAROUSEL -->
-  <section class="container mb-5">
+  <div class="container px-4 py-5" id="features">
+    <h2 class="pb-4 fw-bold">Why Move With Us?</h2>
+    <div class="row g-5 py-5 row-cols-1 row-cols-lg-3">
+      <div class="feature col">
+        <div class="feature-icon d-inline-flex align-items-center justify-content-center text-white fs-2">
+          <img src="./briefcase.svg" alt="briefcase" height="28" style="filter: brightness(0) invert(1);">
+        </div>
+        <h3>Professional</h3>
+        <p class="text-secondary">Trained experts who treat your life’s memories with the utmost respect and organization.</p>
+        <a href="#" class="icon-link text-decoration-none fw-bold">
+          Get started →
+        </a>
+      </div>
+      <div class="feature col">
+        <div class="feature-icon d-inline-flex align-items-center justify-content-center text-white fs-2">
+          <img src="./bus-front.svg" alt="bus" height="28" style="filter: brightness(0) invert(1);">
+        </div>
+        <h3>Countrywide</h3>
+        <p class="text-secondary">Whether it's across the street or across the coast, our transparent pricing keeps you in control.</p>
+        <a href="#" class="icon-link text-decoration-none fw-bold">
+          View rates →
+        </a>
+      </div>
+      <div class="feature col">
+        <div class="feature-icon d-inline-flex align-items-center justify-content-center text-white fs-2">
+          <img src="./chat-square-heart.svg" alt="heart" height="28" style="filter: brightness(0) invert(1);">
+        </div>
+        <h3>Personal Touch</h3>
+        <p class="text-secondary">A dedicated moving coordinator for every customer. We’re with you every step of the way.</p>
+        <a href="#" class="icon-link text-decoration-none fw-bold">
+          Our promise →
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mb-5">
     <div id="moveCarousel" class="carousel slide shadow-lg" data-bs-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="./couple.jpg" class="d-block w-100" />
+          <img src="./couple.jpg" class="d-block w-100" alt="couple">
         </div>
         <div class="carousel-item">
-          <img src="./dog.jpg" class="d-block w-100" />
+          <img src="./dog.jpg" class="d-block w-100" alt="dog">
         </div>
         <div class="carousel-item">
-          <img src="./family.jpg" class="d-block w-100" />
+          <img src="./family.jpg" class="d-block w-100" alt="family">
         </div>
       </div>
-
       <button class="carousel-control-prev" type="button" data-bs-target="#moveCarousel" data-bs-slide="prev">
         <span class="carousel-control-prev-icon"></span>
       </button>
-
       <button class="carousel-control-next" type="button" data-bs-target="#moveCarousel" data-bs-slide="next">
         <span class="carousel-control-next-icon"></span>
       </button>
     </div>
-  </section>
+  </div>
 
-  <!-- FOOTER -->
-  <footer class="border-top mt-5">
+  <footer class="bg-light mt-5 border-top">
     <div class="container py-5">
       <div class="row">
         <div class="col-md-4 mb-4">
-          <h4 class="fw-bold">MOVE IT</h4>
-          <p class="text-secondary">Stress-free moving since 2023.</p>
-          <p class="small text-secondary">© 2026 Move It Inc.</p>
+          <h4 class="fw-bold mb-3">MOVE IT</h4>
+          <p class="text-secondary">Providing stress-free moving experiences since 2023.</p>
+          <p class="text-secondary small">© 2026 Move It Inc.</p>
         </div>
-
-        <div class="col-6 col-md-2 offset-md-2">
+        <div class="col-6 col-md-2 offset-md-2 mb-3">
           <h5>Services</h5>
           <ul class="nav flex-column">
-            <li class="nav-item"><a class="nav-link p-0 text-secondary" href="#">Local Move</a></li>
-            <li class="nav-item"><a class="nav-link p-0 text-secondary" href="#">Interstate</a></li>
-            <li class="nav-item"><a class="nav-link p-0 text-secondary" href="#">Storage</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-secondary">Local Move</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-secondary">Interstate</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-secondary">Storage</a></li>
           </ul>
         </div>
-
-        <div class="col-6 col-md-2">
+        <div class="col-6 col-md-2 mb-3">
           <h5>Company</h5>
           <ul class="nav flex-column">
-            <li class="nav-item"><a class="nav-link p-0 text-secondary" href="#">About</a></li>
-            <li class="nav-item"><a class="nav-link p-0 text-secondary" href="#">Pricing</a></li>
-            <li class="nav-item"><a class="nav-link p-0 text-secondary" href="#">Blog</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-secondary">About Us</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-secondary">Pricing</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-secondary">Blog</a></li>
           </ul>
         </div>
-
-        <div class="col-6 col-md-2">
+        <div class="col-6 col-md-2 mb-3">
           <h5>Legal</h5>
           <ul class="nav flex-column">
-            <li class="nav-item"><a class="nav-link p-0 text-secondary" href="#">Privacy</a></li>
-            <li class="nav-item"><a class="nav-link p-0 text-secondary" href="#">Terms</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-secondary">Privacy</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-secondary">Terms</a></li>
           </ul>
         </div>
       </div>
@@ -312,4 +235,5 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
