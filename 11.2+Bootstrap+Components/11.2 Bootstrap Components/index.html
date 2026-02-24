@@ -5,63 +5,55 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Move It | Seamless Moving Services</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
   
   <style>
     :root {
       --primary: #2563eb;
-      --primary-dark: #1e40af;
-      --primary-soft: #eff6ff;
+      --primary-soft: #dbeafe;
       --slate-900: #0f172a;
       --slate-600: #475569;
-      --slate-50: #f8fafc;
       --white: #ffffff;
     }
 
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
       color: var(--slate-600);
-      background-color: var(--white);
       overflow-x: hidden;
     }
 
     /* Floating Glass Navbar */
     .navbar {
-      padding: 1rem 0;
+      padding: 1.2rem 0;
       background: rgba(255, 255, 255, 0.8) !important;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
       border-bottom: 1px solid rgba(0,0,0,0.05);
-      transition: all 0.3s ease;
     }
 
     .navbar-brand {
       font-weight: 800;
       letter-spacing: -1px;
       color: var(--slate-900) !important;
-      font-size: 1.4rem;
+      font-size: 1.5rem;
     }
 
-    /* Hero Section */
+    /* Hero Section with Depth */
     .hero-container {
-      background: radial-gradient(circle at top right, #f1f5f9, #ffffff);
-      padding: 6rem 0 4rem 0;
+      background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+      padding-top: 5rem;
     }
 
     .hero-badge {
       background: var(--primary-soft);
       color: var(--primary);
-      padding: 0.6rem 1.2rem;
+      padding: 0.5rem 1rem;
       border-radius: 100px;
       font-weight: 700;
-      font-size: 0.8rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 2rem;
-      border: 1px solid rgba(37, 99, 235, 0.1);
+      font-size: 0.85rem;
+      display: inline-block;
+      margin-bottom: 1.5rem;
     }
 
     .display-4 {
@@ -69,87 +61,98 @@
       letter-spacing: -2px;
       color: var(--slate-900);
       line-height: 1.1;
-      margin-bottom: 1.5rem;
     }
 
     .hero-img {
-      border-radius: 40px !important;
-      box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.2);
-      animation: float 6s ease-in-out infinite;
+      border-radius: 32px !important;
+      transform: perspective(1000px) rotateX(2deg);
+      transition: transform 0.4s ease;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
     }
 
-    @keyframes float {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-20px); }
-      100% { transform: translateY(0px); }
+    .hero-img:hover {
+      transform: perspective(1000px) rotateX(0deg) scale(1.02);
     }
 
-    /* Feature Cards */
+    /* Hover-Active Feature Cards */
     .feature-card {
       border: 1px solid #f1f5f9;
-      border-radius: 28px;
-      padding: 3rem 2.5rem;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: 24px;
+      padding: 2.5rem;
+      transition: all 0.3s ease;
       background: var(--white);
-      position: relative;
-      z-index: 1;
     }
 
     .feature-card:hover {
-      box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.08);
-      border-color: transparent;
-      transform: translateY(-12px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+      border-color: var(--primary-soft);
+      transform: translateY(-8px);
     }
 
     .feature-icon {
-      width: 3.5rem;
-      height: 3.5rem;
-      border-radius: 14px;
-      background: var(--primary);
-      margin-bottom: 1.5rem;
+      width: 4rem;
+      height: 4rem;
+      border-radius: 16px;
+      background: var(--primary) !important;
+      margin-bottom: 2rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: white;
-      font-size: 1.5rem;
     }
 
-    /* Carousel Customization */
+    /* Clean Carousel */
     .carousel {
-      border-radius: 40px;
+      border-radius: 32px;
       overflow: hidden;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      margin-top: 5rem;
     }
 
     .carousel-item img {
-      height: 600px;
+      height: 550px;
       object-fit: cover;
     }
 
-    /* Buttons */
+    /* Modern Buttons */
     .btn-primary {
       background: var(--primary);
       border: none;
-      padding: 1rem 2.5rem;
+      padding: 0.8rem 2.2rem;
       font-weight: 700;
-      border-radius: 14px;
-      transition: all 0.3s ease;
+      border-radius: 12px;
+      box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
     }
 
     .btn-primary:hover {
-      background: var(--primary-dark);
-      transform: scale(1.03);
-      box-shadow: 0 15px 30px rgba(37, 99, 235, 0.3);
+      background: #1d4ed8;
+      transform: translateY(-2px);
+      box-shadow: 0 20px 25px -5px rgba(37, 99, 235, 0.4);
     }
 
-    .btn-check-postcode {
-      border-radius: 12px !important;
-      padding-left: 1.5rem;
-      padding-right: 1.5rem;
+    .btn-outline-dark {
+      border: 2px solid var(--slate-900);
+      padding: 0.8rem 2.2rem;
+      font-weight: 700;
+      border-radius: 12px;
     }
 
-    footer {
-      background-color: var(--slate-50);
+    /* Footer Polish */
+    footer h5 {
+      color: var(--slate-900);
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .footer-link {
+      color: var(--slate-600);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-link:hover {
+      color: var(--primary);
     }
   </style>
 </head>
@@ -159,154 +162,134 @@
   <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center" href="#">
-        <i class="bi bi-box-seam-fill me-2 text-primary"></i>MOVE IT
+        <img src="./box-seam.svg" alt="logo" height="32" class="me-2">MOVE IT
       </a>
       <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="bi bi-list fs-2"></span>
+        <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav mx-auto">
-          <li class="nav-item"><a class="nav-link active fw-bold px-3" href="#">Home</a></li>
-          <li class="nav-item"><a class="nav-link fw-semibold px-3" href="#">About</a></li>
-          <li class="nav-item"><a class="nav-link fw-semibold px-3" href="#">Services</a></li>
+        <ul class="navbar-nav ms-auto me-4">
+          <li class="nav-item"><a class="nav-link active fw-bold" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link fw-semibold" href="#">About</a></li>
+          <li class="nav-item"><a class="nav-link fw-semibold" href="#">Services</a></li>
         </ul>
-        <div class="d-flex align-items-center gap-2">
-           <div class="input-group">
-            <input type="text" class="form-control border-0 bg-light rounded-start-3" placeholder="Postcode">
-            <button class="btn btn-primary btn-check-postcode" type="button">Check</button>
-           </div>
-        </div>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2 border-0 bg-light px-3 py-2 rounded-3" type="search" placeholder="Enter Postcode">
+          <button class="btn btn-primary" type="submit">Check</button>
+        </form>
       </div>
     </div>
   </nav>
 
   <section class="hero-container text-center px-4">
-    <div class="container">
-      <div class="hero-badge">
-        <i class="bi bi-stars"></i> Moving Simplified for 2026
+    <div class="hero-badge">📦 Moving Simplified for 2026</div>
+    <h1 class="display-4 mb-4">Move With <span style="color: var(--primary);">Confidence.</span></h1>
+    <div class="col-lg-6 mx-auto">
+      <p class="lead mb-5 text-secondary">Relocation shouldn't be a nightmare. We provide premium, tech-enabled moving services designed to treat your possessions with the care they deserve.</p>
+      <div class="d-grid gap-3 d-sm-flex justify-content-sm-center mb-5">
+        <button type="button" class="btn btn-primary btn-lg shadow">Get Free Quote</button>
+        <button type="button" class="btn btn-outline-dark btn-lg">Contact Sales</button>
       </div>
-      <h1 class="display-4 mx-auto" style="max-width: 800px;">Move With <span class="text-primary">Confidence.</span> We'll Handle the Rest.</h1>
-      <div class="col-lg-7 mx-auto">
-        <p class="lead mb-5 text-secondary">Relocation shouldn't be a nightmare. We provide premium, tech-enabled moving services designed to treat your possessions with the care they deserve.</p>
-        <div class="d-grid gap-3 d-sm-flex justify-content-sm-center mb-5">
-          <button type="button" class="btn btn-primary btn-lg px-5 shadow">Get Free Quote</button>
-          <button type="button" class="btn btn-outline-dark border-2 btn-lg px-5 rounded-4">Contact Sales</button>
-        </div>
-      </div>
-      <div class="container mt-4">
-        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=1200" class="img-fluid hero-img" alt="Moving Van">
-      </div>
+    </div>
+    <div class="container px-lg-5">
+      <img src="./moving-van.jpg" class="img-fluid hero-img mb-4" alt="Moving Van" width="1000">
     </div>
   </section>
 
-  <section class="container py-5" id="features">
+  <section class="container py-5 my-5" id="features">
     <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
       <div class="col">
         <div class="feature-card h-100">
-          <div class="feature-icon shadow">
-            <i class="bi bi-briefcase"></i>
+          <div class="feature-icon shadow-lg">
+            <img src="./briefcase.svg" alt="briefcase" height="28" style="filter: brightness(0) invert(1);">
           </div>
-          <h4 class="fw-800 text-dark mb-3">Professional Experts</h4>
-          <p class="mb-4">Trained specialists who treat your life’s memories with tactical organization and total respect.</p>
-          <a href="#" class="text-primary text-decoration-none fw-bold small">LEARN MORE <i class="bi bi-arrow-right ms-1"></i></a>
+          <h3 class="fw-bold text-dark">Professional</h3>
+          <p class="mb-4">Trained experts who treat your life’s memories with the utmost respect and tactical organization.</p>
+          <a href="#" class="text-primary text-decoration-none fw-bold">Learn more →</a>
         </div>
       </div>
       <div class="col">
         <div class="feature-card h-100">
-          <div class="feature-icon shadow">
-            <i class="bi bi-truck"></i>
+          <div class="feature-icon shadow-lg">
+            <img src="./bus-front.svg" alt="bus" height="28" style="filter: brightness(0) invert(1);">
           </div>
-          <h4 class="fw-800 text-dark mb-3">Countrywide Logistics</h4>
-          <p class="mb-4">Our expansive logistics network ensures your move is tracked and on-time, from coast to coast.</p>
-          <a href="#" class="text-primary text-decoration-none fw-bold small">VIEW COVERAGE <i class="bi bi-arrow-right ms-1"></i></a>
+          <h3 class="fw-bold text-dark">Countrywide</h3>
+          <p class="mb-4">From coast to coast, our logistics network ensures your move is tracked and on-time, every time.</p>
+          <a href="#" class="text-primary text-decoration-none fw-bold">View coverage →</a>
         </div>
       </div>
       <div class="col">
         <div class="feature-card h-100">
-          <div class="feature-icon shadow">
-            <i class="bi bi-heart-fill"></i>
+          <div class="feature-icon shadow-lg">
+            <img src="./chat-square-heart.svg" alt="heart" height="28" style="filter: brightness(0) invert(1);">
           </div>
-          <h4 class="fw-800 text-dark mb-3">Personal Touch</h4>
-          <p class="mb-4">A dedicated moving concierge guides you through every step. No bots, just human support.</p>
-          <a href="#" class="text-primary text-decoration-none fw-bold small">OUR PROMISE <i class="bi bi-arrow-right ms-1"></i></a>
+          <h3 class="fw-bold text-dark">Personal Touch</h3>
+          <p class="mb-4">Get a dedicated moving concierge to guide you through every step of the process. No bots, just humans.</p>
+          <a href="#" class="text-primary text-decoration-none fw-bold">Our promise →</a>
         </div>
       </div>
     </div>
   </section>
 
   <div class="container mb-5 pb-5">
-    <div id="moveCarousel" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-indicators">
-        <button type="button" data-bs-target="#moveCarousel" data-bs-slide-to="0" class="active"></button>
-        <button type="button" data-bs-target="#moveCarousel" data-bs-slide-to="1"></button>
-        <button type="button" data-bs-target="#moveCarousel" data-bs-slide-to="2"></button>
-      </div>
+    <div id="moveCarousel" class="carousel slide shadow-2xl" data-bs-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&q=80&w=1200" class="d-block w-100" alt="Moving house">
+          <img src="./couple.jpg" class="d-block w-100" alt="couple">
         </div>
         <div class="carousel-item">
-          <img src="https://images.unsplash.com/photo-1581578731522-a00477194262?auto=format&fit=crop&q=80&w=1200" class="d-block w-100" alt="Family moving">
+          <img src="./dog.jpg" class="d-block w-100" alt="dog">
         </div>
         <div class="carousel-item">
-          <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&q=80&w=1200" class="d-block w-100" alt="House">
+          <img src="./family.jpg" class="d-block w-100" alt="family">
         </div>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#moveCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon p-3 bg-dark rounded-circle"></span>
+        <span class="carousel-control-prev-icon"></span>
       </button>
       <button class="carousel-control-next" type="button" data-bs-target="#moveCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon p-3 bg-dark rounded-circle"></span>
+        <span class="carousel-control-next-icon"></span>
       </button>
     </div>
   </div>
 
-  <footer class="border-top">
+  <footer class="bg-light border-top">
     <div class="container py-5">
       <div class="row g-5">
-        <div class="col-md-4">
-          <h4 class="fw-bold mb-3 text-dark d-flex align-items-center">
-            <i class="bi bi-box-seam-fill me-2 text-primary"></i>MOVE IT
-          </h4>
-          <p class="text-secondary pe-lg-5">Redefining moving through transparency, care, and industry-leading logistics. Trusted by 10k+ families globally.</p>
-          <div class="d-flex gap-3 mt-4 fs-5">
-            <i class="bi bi-facebook text-primary"></i>
-            <i class="bi bi-twitter-x text-primary"></i>
-            <i class="bi bi-instagram text-primary"></i>
-          </div>
+        <div class="col-md-4 mb-4">
+          <h4 class="fw-bold mb-3 text-dark">MOVE IT</h4>
+          <p class="text-secondary small pe-lg-5">Redefining the moving experience through transparency, care, and industry-leading logistics. Trusted by 10k+ families.</p>
+          <p class="text-secondary small mt-4">© 2026 Move It Inc.</p>
         </div>
         <div class="col-6 col-md-2 offset-md-2">
-          <h6 class="fw-bold text-dark mb-4 text-uppercase">Services</h6>
-          <ul class="nav flex-column gap-2">
-            <li><a href="#" class="text-secondary text-decoration-none small">Residential</a></li>
-            <li><a href="#" class="text-secondary text-decoration-none small">Commercial</a></li>
-            <li><a href="#" class="text-secondary text-decoration-none small">Storage</a></li>
+          <h5>Services</h5>
+          <ul class="nav flex-column">
+            <li class="mb-2"><a href="#" class="footer-link small">Residential</a></li>
+            <li class="mb-2"><a href="#" class="footer-link small">Commercial</a></li>
+            <li class="mb-2"><a href="#" class="footer-link small">Storage</a></li>
           </ul>
         </div>
         <div class="col-6 col-md-2">
-          <h6 class="fw-bold text-dark mb-4 text-uppercase">Company</h6>
-          <ul class="nav flex-column gap-2">
-            <li><a href="#" class="text-secondary text-decoration-none small">About Us</a></li>
-            <li><a href="#" class="text-secondary text-decoration-none small">Pricing</a></li>
-            <li><a href="#" class="text-secondary text-decoration-none small">Blog</a></li>
+          <h5>Company</h5>
+          <ul class="nav flex-column">
+            <li class="mb-2"><a href="#" class="footer-link small">About Us</a></li>
+            <li class="mb-2"><a href="#" class="footer-link small">Pricing</a></li>
+            <li class="mb-2"><a href="#" class="footer-link small">Blog</a></li>
           </ul>
         </div>
-        <div class="col-md-2">
-          <h6 class="fw-bold text-dark mb-4 text-uppercase">Support</h6>
-          <ul class="nav flex-column gap-2">
-            <li><a href="#" class="text-secondary text-decoration-none small">Help Center</a></li>
-            <li><a href="#" class="text-secondary text-decoration-none small">Privacy Policy</a></li>
-            <li><a href="#" class="text-secondary text-decoration-none small">Terms of Service</a></li>
+        <div class="col-6 col-md-2">
+          <h5>Support</h5>
+          <ul class="nav flex-column">
+            <li class="mb-2"><a href="#" class="footer-link small">Help Center</a></li>
+            <li class="mb-2"><a href="#" class="footer-link small">Privacy</a></li>
+            <li class="mb-2"><a href="#" class="footer-link small">Terms</a></li>
           </ul>
         </div>
-      </div>
-      <div class="pt-5 mt-5 border-top text-center">
-        <p class="text-secondary small">© 2026 Move It Inc. All rights reserved.</p>
       </div>
     </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
